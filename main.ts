@@ -41,9 +41,9 @@ const y=new Int32Array(a.length).fill(-1),s=[];
 for(let k=0;k<a.length;k++){if(a[k]||c[k]||y[k]>=0)continue;const q=[k];y[k]=s.length;
 for(let i=0;i<q.length;i++)for(let j=0;j<4;j++){const n2=q[i]+Q[2*j+1]*w+Q[2*j];if(!a[n2]&&!c[n2]&&y[n2]<0){y[n2]=s.length;q.push(n2);}}
 s.push({b:[],g:[]});}
-for(const x of b)s[y[x]].b.push(x);for(const x of g)if(y[x]>=0)s[y[x]].g.push(x);
-if(g.some(x=>y[x]<0)||s.some(t=>t.b.length!==t.g.length))return null;
-return s.filter(t=>t.b.length);}
+for(const x of b)s[y[x]].b.push(x);for(const x of g)s[y[x]].g.push(x);
+if(s.some(t=>t.b.length!==t.g.length))return null;
+return s;}
 function S(l){const s=U(l);if(!s)return null;let p=l.p,m='';
 for(let i=0;i<s.length;i++){const r=s[i],a=l.a.slice();
 for(let j=0;j<s.length;j++)if(j!==i)for(const z of j<i?s[j].g:s[j].b)a[z]=1;
